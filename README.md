@@ -1,8 +1,8 @@
 # first10min.sh
-## by darkmage
-### x: @evildojo666
-### https://www.evildojo.com
-#### based on: https://blog.codelitt.com/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/
+by darkmage
+- x: https://x.com/evildojo666
+- https://www.evildojo.com
+- based on: https://blog.codelitt.com/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/
 
 Usage:
 
