@@ -17,8 +17,6 @@ Usage:
 4. `chmod +x first10min.sh`
 5. `./first10min.sh darkmage darkmage_keyfile.pub`
 
-There is no error checking at the moment.
-
 After running the script, you'll have to deal with 3 prompts:
 
 1. The prompt for a new root password.

@@ -8,6 +8,24 @@
 
 USERNAME="$1";
 SSH_KEYFILE="$2";
+
+if [ -z "$USERNAME" ]; then
+    echo "Usage: $0 <username> <ssh_keyfile>";
+    exit 1;
+fi
+
+if [ -z "$SSH_KEYFILE" ]; then
+    echo "Usage: $0 <username> <ssh_keyfile>";
+    exit 1;
+fi
+
+# check that keyfile exists
+if [ ! -f "$SSH_KEYFILE" ]; then
+    echo "Error: $SSH_KEYFILE does not exist";
+    exit 1;
+fi
+
+# change root password
 passwd;
 
 # basics
@@ -37,14 +55,15 @@ ufw disable;
 ufw enable; 
 
 # my own extras
+# disable printing IP address on login
 touch /home/$USERNAME/.hushlogin;
 
 # install golang runtime
-#FILENAME="go1.21.3.linux-amd64.tar.gz";
-#URL="https://go.dev/dl/$FILENAME";
-#wget $URL;
-#rm -rf /usr/local/go;
-#tar -C /usr/local -xzf $FILENAME;
+FILENAME="go1.21.4.linux-amd64.tar.gz";
+URL="https://go.dev/dl/$FILENAME";
+wget $URL;
+rm -rf /usr/local/go;
+tar -C /usr/local -xzf $FILENAME;
 
 # install qs
 #pip3 install queryswap;
