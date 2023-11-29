@@ -8,14 +8,14 @@ by darkmage
 Usage:
 
 ```
-./first10min.sh <username> <ssh_keyfile>
+./first10min.sh <username> [ssh_keyfile]
 ```
 
 1. Spin up a brand new VPS.
-2. Copy `first10min.sh` and your new user's ssh keyfile over: [How to set up an SSH key](https://www.google.com/search?q=set+up+an+ssh+key): `scp first10min.sh darkmage_keyfile.pub root@newvps:.`
+2. Copy `first10min.sh` and your new user's ssh keyfile over (if using one): [How to set up an SSH key](https://www.google.com/search?q=set+up+an+ssh+key): `scp first10min.sh darkmage_keyfile.pub root@newvps:.`
 3. `ssh root@newvps`
 4. `chmod +x first10min.sh`
-5. `./first10min.sh darkmage darkmage_keyfile.pub`
+5. `./first10min.sh darkmage [darkmage_keyfile.pub]`
 
 After running the script, you'll have to deal with 3 prompts:
 
