@@ -14,10 +14,10 @@ if [ -z "$USERNAME" ]; then
     exit 1;
 fi
 
-if [ -z "$SSH_KEYFILE" ]; then
-    echo "Usage: $0 <username> [ssh_keyfile]";
-    exit 1;
-fi
+#if [ -z "$SSH_KEYFILE" ]; then
+#    echo "Usage: $0 <username> [ssh_keyfile]";
+#    exit 1;
+#fi
 
 # check that keyfile exists
 if [ ! -f "$SSH_KEYFILE" ]; then
@@ -33,7 +33,7 @@ passwd;
 apt-get update;
 apt-get upgrade -y;
 apt-get install -y tmux zsh git rsync build-essential htop fail2ban ufw python3-pip ca-certificates curl gnupg \
-    unattended-upgrades lsb-release neovim parallel btop;
+    unattended-upgrades lsb-release neovim parallel btop fortune cowsay;
 
 # configure user
 useradd $USERNAME;
@@ -64,15 +64,15 @@ ufw enable;
 touch /home/$USERNAME/.hushlogin;
 
 # install golang runtime
-FILENAME="go1.21.4.linux-amd64.tar.gz";
+FILENAME="go1.22.1.linux-amd64.tar.gz";
 URL="https://go.dev/dl/$FILENAME";
 wget $URL;
 rm -rf /usr/local/go;
 tar -C /usr/local -xzf $FILENAME;
 
 # install mullvad
-wget https://mullvad.net/en/download/app/deb/latest -O mullvad.deb;
-dpkg -i mullvad.deb;
+#wget https://mullvad.net/en/download/app/deb/latest -O mullvad.deb;
+#dpkg -i mullvad.deb;
 
 # install do-agent
 curl -sSL https://repos.insights.digitalocean.com/install.sh | bash;
@@ -86,4 +86,9 @@ curl -sSL https://repos.insights.digitalocean.com/install.sh | bash;
 #echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null;
 #apt update;
 #apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin;
+
+# for fun
+# install pokemonsay
+
+
 
