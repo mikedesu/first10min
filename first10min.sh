@@ -64,7 +64,7 @@ ufw enable;
 touch /home/$USERNAME/.hushlogin;
 
 # install golang runtime
-FILENAME="go1.22.1.linux-amd64.tar.gz";
+FILENAME="go1.23.3.linux-amd64.tar.gz";
 URL="https://go.dev/dl/$FILENAME";
 wget $URL;
 rm -rf /usr/local/go;
@@ -75,7 +75,7 @@ tar -C /usr/local -xzf $FILENAME;
 #dpkg -i mullvad.deb;
 
 # install do-agent
-curl -sSL https://repos.insights.digitalocean.com/install.sh | bash;
+#curl -sSL https://repos.insights.digitalocean.com/install.sh | bash;
 
 # install qs
 #pip3 install queryswap;
