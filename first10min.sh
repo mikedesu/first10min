@@ -1,10 +1,10 @@
-####################################################################################################################### 
+########################################
 # first10min.sh
 # by darkmage
 # x: @evildojo666
 # https://www.evildojo.com
 # based on: https://blog.codelitt.com/my-first-10-minutes-on-a-server-primer-for-securing-ubuntu/
-####################################################################################################################### 
+########################################
 
 USERNAME="$1";
 SSH_KEYFILE="$2";
@@ -33,7 +33,7 @@ passwd;
 apt-get update;
 apt-get upgrade -y;
 apt-get install -y tmux zsh git rsync build-essential htop fail2ban ufw python3-pip ca-certificates curl gnupg \
-    unattended-upgrades lsb-release neovim parallel btop fortune cowsay;
+    unattended-upgrades lsb-release btop fortune cowsay;
 
 # configure user
 useradd $USERNAME;
@@ -64,31 +64,12 @@ ufw enable;
 touch /home/$USERNAME/.hushlogin;
 
 # install golang runtime
-FILENAME="go1.23.3.linux-amd64.tar.gz";
+FILENAME="go1.23.6.linux-amd64.tar.gz";
 URL="https://go.dev/dl/$FILENAME";
 wget $URL;
 rm -rf /usr/local/go;
 tar -C /usr/local -xzf $FILENAME;
 
-# install mullvad
-#wget https://mullvad.net/en/download/app/deb/latest -O mullvad.deb;
-#dpkg -i mullvad.deb;
-
-# install do-agent
-#curl -sSL https://repos.insights.digitalocean.com/install.sh | bash;
-
 # install qs
 #pip3 install queryswap;
-
-# install docker
-#mkdir -p /etc/apt/keyrings;
-#curl -fsSL https://download.docker.com/linux/debian/gpg | gpg --dearmor -o /etc/apt/keyrings/docker.gpg;
-#echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/debian $(lsb_release -cs) stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null;
-#apt update;
-#apt install -y docker-ce docker-ce-cli containerd.io docker-compose-plugin;
-
-# for fun
-# install pokemonsay
-
-
 
